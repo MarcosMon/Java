@@ -1,4 +1,4 @@
-package testDNI;
+package testDni;
 
 import dni.Dni;
 
