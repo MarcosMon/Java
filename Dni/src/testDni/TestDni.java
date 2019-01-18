@@ -15,13 +15,20 @@ public class TestDni {
 		else {
 			System.out.println("Mal");
 		}
-		char letra = dni.getLetra();
-		if (dni.getLetra().equals(letra)) {
+		
+		if (dni.getLetraDni().equals('E')) {
 			
 			System.out.println("Bien");
 		}
 		else {
 			System.out.println("Malamente");
+		}
+		
+		if (dni.getParteNumerica().equals("44444433")) {
+			System.out.println("Bien");
+		}
+		else {
+			System.out.println("Malamente tra tra");
 		}
 	}
 
