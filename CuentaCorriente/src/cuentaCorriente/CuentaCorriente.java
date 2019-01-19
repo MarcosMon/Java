@@ -12,7 +12,7 @@ public class CuentaCorriente {
 		this.apellidos = apellidos;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.saldo = 0;
+		this.saldo = 100;
 	}
 	
 	public String getNombre() {
@@ -53,6 +53,28 @@ public class CuentaCorriente {
 	
 	public void setTelefono() {
 		this.telefono = telefono;
+	}
+	public void setSaldo(double gastos) {
+		this.saldo += gastos;
+	}
+	
+	public void  retirarDinero(double retirar) {
+		this.setSaldo(-retirar);
+	}
+	
+	public void  ingresarDinero(double ingresar) {
+		this.setSaldo(ingresar);
+	}
+	public void consultarCuenta() {
+		System.out.println("Tu saldo es de " + getSaldo() + " Tu nombre es " + getNombre() + " Tu apellido es " + " Tu direccion es " + getDireccion() + " Y tu telefono es " + getTelefono()  );
+	}
+	public  boolean saldoNegativo() {
+		if (getSaldo() < 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 
