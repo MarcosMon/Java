@@ -1,0 +1,14 @@
+package empleado;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestEmpleadoTest {
+	Empleado empleado1 = new Empleado("Marcos");
+	@Test
+	public void test() {
+		assertEquals(1600, empleado1.getSueldo(1600));
+	}
+
+}

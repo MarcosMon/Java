@@ -1,0 +1,14 @@
+package com.encinas;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String vater = "-123456789X";
+		String cadena =  "123456788";
+		for (int i = 0; i < cadena.length(); i++) {
+			total+=vater.indexOf(cadena.charAt(i));
+		}
+	}
+
+}

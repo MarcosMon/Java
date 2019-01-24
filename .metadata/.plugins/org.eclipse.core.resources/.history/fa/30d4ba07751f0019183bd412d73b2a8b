@@ -1,0 +1,19 @@
+package org.lasencinas.bowlingGame;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.encinas.App;
+
+public class ScoreCardTest {
+
+	@Test
+	public void dameelvalor() {
+		String symbols = "9-9-9-9-9-9-9-9-9-9-";
+		ScoreCard card = new ScoreCard();
+		int total = 90;
+		assertEquals(total, card.getvalueStrike(symbols));
+	}
+
+}

@@ -1,0 +1,29 @@
+package testDni;
+
+import dni.TablaAsignacion;
+
+public class TestTablaAsignacion {
+
+	public static void main(String[] args) {
+        
+	    TablaAsignacion nuevaTabla = new  TablaAsignacion();
+	    nuevaTabla.setTablaAsignacion();
+	    nuevaTabla.getLongitudDni();//Esto te devuelve la longitud de la tabla de asignacion de Dni ,en este caso 23 int
+	    String [] test = {"43235169E","44333323","42312312P"};
+	    for (String dni : test) {
+	    	
+	    
+	        char letra= dni.charAt(dni.length() -1);
+	        String numerica = dni.substring(0, dni.length()-1);
+	        System.out.println(numerica);
+	        
+	    	if (nuevaTabla.calcularLetraDni(numerica).equals(letra)) { 
+	    		System.out.println("Letra correcta");// este caso test te muestra la letra que va en esa posición  
+	    	}
+	    	else{
+	    		System.out.println("Letra incorrecta");
+	    }
+	    }
+
+	    }
+	}

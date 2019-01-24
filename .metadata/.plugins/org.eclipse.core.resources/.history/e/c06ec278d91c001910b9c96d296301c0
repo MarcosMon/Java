@@ -1,0 +1,17 @@
+package tarjetaUsuario;
+
+public class TarjetaUsuario {
+	private String id;
+	private boolean activa;
+	public TarjetaUsuario(String id, boolean activa) {
+		this.id = id;
+		this.activa = activa;
+	}
+	public int getId() {
+		return this.id;
+	}
+	
+	public boolean getActiva(){
+		return this.activa;
+	}
+}

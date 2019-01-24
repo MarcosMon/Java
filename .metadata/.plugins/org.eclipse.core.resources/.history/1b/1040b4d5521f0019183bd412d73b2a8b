@@ -1,0 +1,18 @@
+package com.encinas;
+
+public class App {
+
+	public static String symbols = "-123456789X/";
+	
+	
+	public int getvalueStrike(String symbols2) {
+		
+		return symbols.indexOf(symbols2);
+	}
+
+
+
+	
+	
+}
+

@@ -1,0 +1,24 @@
+package com.encinas;
+
+public class App {
+
+	public static String symbols = "-123456789X/";
+	
+	
+	public int getvalueStrike(char symbols2) {
+		int total = 0;
+		char ok = symbols2;
+		for(int = 0 ; i < ok.length; i++){
+			System.out.println(ok.charAt(i));
+		int index = str.indexOf('p');
+
+		
+		return total;
+	}
+
+	}
+
+	
+	
+}
+

@@ -1,0 +1,20 @@
+package com.encinas;
+
+public class App {
+
+	public static String symbols = "-123456789X/";
+	
+	
+	public int getvalueStrike(String symbols2) {
+		int total = 0;
+		for(int i = 0; i < symbols2.length(); i++ )
+		total = total +  symbols.indexOf(i);
+		return total;
+	}
+
+
+
+	
+	
+}
+

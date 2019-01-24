@@ -1,0 +1,8 @@
+package bicicleta;
+
+public class BiciPalma {
+
+	public BiciPalma(int id) {
+		
+	}
+}

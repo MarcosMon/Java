@@ -1,0 +1,19 @@
+package com.encinas;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Apptest {
+
+
+	@Test
+	public void dameelvalor() {
+		String symbols = "9-9-9-9-9-9-9-9-9-9-";
+		App ok = new App();
+		int total = 60;
+		assertEquals(total, ok.getvalueStrike(symbols));
+	}
+	
+
+}

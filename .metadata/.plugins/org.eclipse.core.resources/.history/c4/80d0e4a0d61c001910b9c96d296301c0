@@ -1,0 +1,10 @@
+package tarjetaUsuario;
+
+public class TarjetaUsuario {
+	private int id;
+	private boolean
+	public TarjetaUsuario(int id, boolean activa) {
+		this.id = id;
+		this.activa = activa;
+	}
+}

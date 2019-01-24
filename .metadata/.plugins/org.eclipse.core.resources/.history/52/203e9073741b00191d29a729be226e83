@@ -1,0 +1,14 @@
+package empleado;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestEmpleadoTest {
+
+	@Test
+	public void test() {
+		empleado1.getSueldo().equals(1600);
+	}
+
+}

@@ -1,0 +1,15 @@
+package empleado;
+
+public class Empleado {
+	
+	private String nombre;
+	private int sueldo;
+	private String puesto;
+
+	public Empleado(String nombre) {
+		this.nombre=nombre;
+		this.sueldo = 1000;
+		this.puesto = "administrador";
+	}
+	public void 
+}

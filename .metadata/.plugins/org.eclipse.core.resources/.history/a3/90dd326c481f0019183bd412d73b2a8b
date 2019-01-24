@@ -1,0 +1,16 @@
+package com.encinas;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Apptest {
+
+	@Test
+	public void dameElValorDelSimbolo() {
+		String symbols = "-123456789X/";
+		App ok = new App();
+		assertEquals(10, getvalueStrike("X"));
+	}
+	
+}
