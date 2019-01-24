@@ -1,18 +1,19 @@
 package cuentaCorriente;
+import dni.Dni;
 
 public class CuentaCorriente {
-
 	private String nombre, apellidos, direccion, telefono;
-
+	private String dni;
 	private double saldo;
 
-	public CuentaCorriente(String nombre, String apellidos, String direccion, String telefono) {
+	public CuentaCorriente(String nombre, String apellidos, String direccion, String telefono, String dni) {
 
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.saldo = 100;
+		this.dni = dni;
 	}
 
 	public String getNombre() {

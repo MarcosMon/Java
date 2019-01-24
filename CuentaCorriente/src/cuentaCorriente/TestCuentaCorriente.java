@@ -1,4 +1,5 @@
 package cuentaCorriente;
+import dni.Dni;
 
 public class TestCuentaCorriente {
 
@@ -24,7 +25,7 @@ public class TestCuentaCorriente {
 		 * } }
 		 */
 
-		CuentaCorriente cuentaCorrienteJose = new CuentaCorriente("Jose", "Zamora", "Calle pepito n 35", "616402211");
+		CuentaCorriente cuentaCorrienteJose = new CuentaCorriente("Jose", "Zamora", "Calle pepito n 35", "616402211","43235169e");
 
 		if (cuentaCorrienteJose.getNombre().equalsIgnoreCase("Jose")) {
 			System.out.println("Es correcto");
