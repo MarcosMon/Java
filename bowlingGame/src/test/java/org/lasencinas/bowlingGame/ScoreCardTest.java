@@ -23,5 +23,12 @@ public class ScoreCardTest {
 		int total = 90;
 		assertEquals(total, card.getScore(symbols));
 	}
+	@Test
+		public void semiPleno() {
+		String symbols = "5/5/5/5/5/5/5/5/5/5/5";
+		ScoreCard card = new ScoreCard();
+		int total=150;
+		assertEquals(total, card.getsemiPleno(symbols));
+	}
 
 }

@@ -16,4 +16,13 @@ public class ScoreCard {
 		}
 		return total;
 	}
+	public int getsemiPleno(String cadena) {
+		int total=0;
+		for (int i = 0; i < cadena.length(); i++) {
+			if(cadena.charAt(i) == '/') {
+				total+=10 + symbols.indexOf(cadena.charAt(i+1));
+			}
+		}
+		return total;
+	}
 }
