@@ -24,11 +24,18 @@ public class ScoreCardTest {
 		assertEquals(total, card.getScore(symbols));
 	}
 	@Test
-		public void semiPleno() {
+	public void semiPleno() {
 		String symbols = "5/5/5/5/5/5/5/5/5/5/5";
 		ScoreCard card = new ScoreCard();
 		int total=150;
 		assertEquals(total, card.getsemiPleno(symbols));
 	}
-
+	@Test
+	public void simpleStrike() {
+		String symbols = "12X51X4512X512345";
+		ScoreCard card = new ScoreCard();
+		int total = 92;
+		assertEquals(total, card.simpleStrike(symbols));
+	} 
+	
 }

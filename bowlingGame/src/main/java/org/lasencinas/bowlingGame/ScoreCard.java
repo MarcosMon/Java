@@ -24,5 +24,21 @@ public class ScoreCard {
 			}
 		}
 		return total;
+		
 	}
+	public int simpleStrike(String cadena) {
+		int total=0;
+		for (int i = 0; i < cadena.length(); i++) {
+			if (cadena.charAt(i) == 'X') {
+				int ok = symbols.indexOf(cadena.charAt(i+2));
+				total+=10 +  symbols.indexOf(cadena.charAt(i+1) + ok );
+			}
+			else {
+				total+= symbols.indexOf(cadena.charAt(i));
+			}
+	
+		}
+		return total;
+	}
+	
 }
