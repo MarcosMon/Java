@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ScoreCardTest" project="BowlingGame" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="org.lasencinas.bowlingGame.ScoreCardTest" time="0.016">
-    <testcase name="sampleGames" classname="org.lasencinas.bowlingGame.ScoreCardTest" time="0.016"/>
-  </testsuite>
-</testrun>

@@ -4,12 +4,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.encinas"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="potect"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -50,6 +48,8 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\sysma\Desktop\githuub\Java\potect"/>
+			<item value="C:\Users\sysma\Desktop\githuub\Java\BowlingGame"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -62,12 +62,15 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.encinas"/>
+			<item value="org.lasencinas.bowlingGame"/>
+			<item value="org.lasencinas.Package"/>
 		</list>
 		<list key="groupId">
-			<item value="com.encinas"/>
+			<item value="org.lasencinas"/>
 		</list>
 		<list key="artifactId">
+			<item value="bowlingGame"/>
+			<item value="Package"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

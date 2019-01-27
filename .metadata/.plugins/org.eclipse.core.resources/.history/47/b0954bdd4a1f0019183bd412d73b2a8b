@@ -1,9 +1,0 @@
-package com.encinas;
-
-public class App {
-
-	public int getvalueStrike(char c) {
-		return c
-	}
-}
-
