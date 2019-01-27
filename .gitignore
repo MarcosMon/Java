@@ -12,3 +12,4 @@ target/
 # Library
 .settings/
 .sts4-cache/
+/.metadata/
