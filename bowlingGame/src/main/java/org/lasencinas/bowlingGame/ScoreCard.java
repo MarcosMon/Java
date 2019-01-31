@@ -4,7 +4,10 @@ public class ScoreCard {
 
     private String tiradas = "";
     private int puntuacionTotal = 0;
+    private int STRIKE = 10;
+    private int SPARE = 10;
     public static String symbols = "-123456789X/";
+    
 
     public ScoreCard() {
 
@@ -28,44 +31,44 @@ public class ScoreCard {
 
     public void calcularPuntuacion() {
 	int puntuacion = 0;
-	int contar = 0;
+	int posicionesTarjeta = 0;
 	for (int i = 0; i < getTiradas().length(); i++) {
-
 	    if (getTiradas().charAt(i) == 'X') {
-		contar++;
-		if (contar < 19) {
-		    if (getTiradas().charAt(i + 1) == 'X') {
-			int primeraTirada = symbols.indexOf(getTiradas().charAt(i + 1) * 2);
+		posicionesTarjeta++;
+		if (posicionesTarjeta < 19) {
+		    if (getTiradas().charAt(i + 1) == 'X' || getTiradas().charAt(i+2) == 'X') {
+			int primeraTirada = symbols.indexOf(getTiradas().charAt(i + 1)*2);
 			int segundaTirada = symbols.indexOf(getTiradas().charAt(i + 2));
 			puntuacion += 21 + primeraTirada + segundaTirada;
 		    }
 
 		    else if (getTiradas().charAt(i + 2) == '/') {
-			puntuacion += 20;
+			puntuacion += STRIKE + SPARE;
 		    } else {
 			int primeraTirada = symbols.indexOf(getTiradas().charAt(i + 1));
 			int segundaTirada = symbols.indexOf(getTiradas().charAt(i + 2));
 
-			puntuacion += 10 + primeraTirada + segundaTirada;
+			puntuacion += STRIKE + primeraTirada + segundaTirada;
 		    }
 
 		} else {
-		    puntuacion += 10;
+		    puntuacion += STRIKE;
 		}
 
 	    }
 
 	    else if (getTiradas().charAt(i) == '/') {
 		int tiradaAnterior = symbols.indexOf(getTiradas().charAt(i - 1));
-		if (contar < 19) {
-		    puntuacion += 10 + symbols.indexOf(getTiradas().charAt(i + 1)) - tiradaAnterior;
-		} else {
-		    puntuacion += 10 - tiradaAnterior;
+		
+		if (posicionesTarjeta < 19) {
+		    puntuacion += SPARE + symbols.indexOf(getTiradas().charAt(i + 1)) - tiradaAnterior;
+	        }else {
+		    puntuacion += SPARE - tiradaAnterior;
 		}
 	    } else {
 		puntuacion += symbols.indexOf(getTiradas().charAt(i));
 	    }
-	    contar += 1;
+	    posicionesTarjeta += 1;
 
 	}
 	setPuntuacion(puntuacion);
