@@ -1,9 +1,8 @@
 package org.lasencinas.bowlingGame;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class ScoreCardTest {
 
@@ -14,144 +13,142 @@ public class ScoreCardTest {
 		 card = new ScoreCard();
 	}
 	
+
 	@Test
-	/*always hitting pins without getting spares or strikes, a total score of 60.*/
-	public void sampleGames() {
-		String tiradas = "12345123451234512345";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
+	public void TotalScoreHittingPinsTest() {
+
+		// Hitting pins total = 60
+		String pins = "12345123451234512345";
 		int total = 60;
+
+		card = new ScoreCard(pins);
+
+		card.calcularPuntuacion();
+
 		assertEquals(total, card.getPuntuacionTotal());
 	}
 
 	@Test
-	/*heartbreak - 9 pins down each round, giving a score of 90.*/
-	public void heartBreak () {
-		String tiradas = "9-9-9-9-9-9-9-9-9-9-";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
+	public void TotalScoreHittingPinsFailTest() {
+
+		// test symbol -
+
+		String pins = "9-9-9-9-9-9-9-9-9-9-";
 		int total = 90;
+		 card = new ScoreCard(pins);
+		card.calcularPuntuacion();
+		assertEquals(total, card.getPuntuacionTotal());
+
+		pins = "9-3561368153258-7181";
+		total = 82;
+		card = new ScoreCard(pins);
+		card.calcularPuntuacion();
 		assertEquals(total, card.getPuntuacionTotal());
 	}
+
 	@Test
-	public void semiPlenos() {
-		String tiradas = "5/5/5/5/5/5/5/5/5/5/-";
-		card = new ScoreCard(tiradas);
+	public void TotalScoreSpareTest() {
+		/* 	
+		 * If in two tries he knocks them all down, this is called
+		 * a “spare” and his score for the frame is ten plus the
+		 * number of pins knocked down on his next throw (in
+		 * his next turn).
+		 * If he gets a spare or strike in the last (tenth) frame,
+		 * the bowler gets to throw one or two more bonus balls,
+		 * respectively. - These bonus throws are taken as part of
+		 * the same turn. If the bonus throws knock down all the
+		 * pins, the process does not repeat: the bonus throws are
+		 * only used to calculate the score of the final frame.
+		 */
+
+		String pins = "5/5/5/5/5/5/5/5/5/5/5";
+		int total = 150;
+		 card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total=145;
+		assertEquals(total, card.getPuntuacionTotal());
+
+		pins = "9-3/613/815/-/8-7/8/8";
+		total = 131;
+		card = new ScoreCard(pins);
+		card.calcularPuntuacion();
 		assertEquals(total, card.getPuntuacionTotal());
 	}
+
 	@Test
-	public void semiPleno() {
-		String tiradas = "5/5/5/5/5/5/5/5/5/5/5";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
-		int total=150;
-		assertEquals(total, card.getPuntuacionTotal());
-	}
-	@Test
-	public void simpleStrike() {
-		String tiradas = "12X51X4512X512345";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
-		int total = 92;
-		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void Test5() {
-		String tiradas = "9-3/613/815/-/8-7/8/8";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
-		int total = 131;
-		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test6() {
-		String tiradas = "9-3561368153258-7181";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
-		int total = 82;
-		assertEquals(total, card.getPuntuacionTotal());
-	}
-	@Test
-	public void test7() {
-		String tiradas = "X9-9-9-9-9-9-9-9-9-";
-		card = new ScoreCard(tiradas);
-		card.calcularPuntuacion();
+	public void TotalScoreStrikeTest() {
+		/* If on his first try in the frame he knocks down all the
+		 * pins, this is called a “strike”. His turn is over, and his
+		 * score for the frame is ten plus the simple total of the
+		 * pins knocked down in his next two rolls.
+		 * If he gets a spare or strike in the last (tenth) frame,
+		 * the bowler gets to throw one or two more bonus balls,
+		 * respectively. - These bonus throws are taken as part of
+		 * the same turn. If the bonus throws knock down all the
+		 * pins, the process does not repeat: the bonus throws are
+		 * only used to calculate the score of the final frame.
+		 */
+
+		String pins = "X9-9-9-9-9-9-9-9-9-";
 		int total = 100;
-		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test8() {
-		String tiradas = "9-9-9-9-9-9-9-9-9-X9-";
-		card = new ScoreCard(tiradas);
+		 card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 100;
 		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test9() {
-		String tiradas = "X9-X9-9-9-9-9-9-9-";
-		card = new ScoreCard(tiradas);
+
+		// two extra final rolls
+		pins = "9-9-9-9-9-9-9-9-9-X9-";
+		total = 100;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 110;
 		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test10() {
-		String tiradas = "XX9-9-9-9-9-9-9-9-";
-		card = new ScoreCard(tiradas);
+
+		pins = "X9-X9-9-9-9-9-9-9-";
+		total = 110;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 120;
 		assertEquals(total, card.getPuntuacionTotal());
-	}
-	@Test
-	public void test11() {
-		String tiradas = "XXX9-9-9-9-9-9-9-";
-		card = new ScoreCard(tiradas);
+
+		// two strikes in a row is a double
+		pins = "XX9-9-9-9-9-9-9-9-";
+		total = 120;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 141;
 		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test12() {
-		String tiradas = "9-9-9-9-9-9-9-9-9-XXX";
-		card = new ScoreCard(tiradas);
+
+		// three strikes in a row is a triple
+		pins = "XXX9-9-9-9-9-9-9-";
+		total = 141;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 111;
 		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test13() {
-		String tiradas = "X5/X5/XX5/--";
-		card = new ScoreCard(tiradas);
+
+		// two strikes in extra rolls
+		pins = "9-9-9-9-9-9-9-9-9-XXX";
+		total = 111;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 135;
 		assertEquals(total, card.getPuntuacionTotal());
-	} 
-	@Test
-	public void test14() {
-		String tiradas = "X5/X5/XX5/--5/X5/";
-		card = new ScoreCard(tiradas);
+
+		// 12 strikes is a “Thanksgiving Turkey”.
+		pins = "XXXXXXXXXXXX";
+		total = 300;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 175;
 		assertEquals(total, card.getPuntuacionTotal());
-	}
-	@Test
-	public void test15() {
-		String tiradas = "8/549-XX5/53639/9/X";
-		card = new ScoreCard(tiradas);
+
+		// spare in extra roll
+		pins = "8/549-XX5/53639/9/X";
+		total = 149;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 149;
 		assertEquals(total, card.getPuntuacionTotal());
-	}
-	@Test
-	public void test16() {
-		String tiradas = "XXXXXXXXXXXX";
-		card = new ScoreCard(tiradas);
+
+		// spare in extra roll
+		pins = "X5/X5/XX5/--5/X5/";
+		total = 175;
+		card = new ScoreCard(pins);
 		card.calcularPuntuacion();
-		int total = 300;
 		assertEquals(total, card.getPuntuacionTotal());
+
 	}
 }
 
