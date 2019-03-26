@@ -16,9 +16,18 @@ public class NumeracionRomanaTest {
     @Test
     public void comprobarValorV() {
 	NumeracionRomana valorV = NumeracionRomana.V;
-
 	assertEquals(5, valorV.getNumeroDecimal());
 
+    }
+
+    @Test
+    public void comprobarX() {
+	NumeracionRomana x = NumeracionRomana.X;
+	int posicionX = 2;
+
+	assertThat("X").isEqualTo(x.name());
+	assertThat(posicionX).isEqualTo(x.ordinal());
+	assertEquals(10, x.getNumeroDecimal());
     }
 
 }
