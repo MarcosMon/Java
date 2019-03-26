@@ -1,6 +1,7 @@
 package org.lasencinas.NumerosRomanos;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -16,7 +17,8 @@ public class NumeracionRomanaTest {
     public void comprobarValorV() {
 	NumeracionRomana valorV = NumeracionRomana.V;
 
-	System.out.println(valorV.getNumeroDecimal());
+	assertEquals(5, valorV.getNumeroDecimal());
 
     }
+
 }
