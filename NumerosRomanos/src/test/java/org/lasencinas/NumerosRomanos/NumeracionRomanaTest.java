@@ -11,7 +11,12 @@ public class NumeracionRomanaTest {
 	int letrasRomanas = 7;
 	assertThat(letrasRomanas).isEqualTo(NumeracionRomana.values().length);
     }
-   
+
+    @Test
+    public void comprobarValorV() {
+	NumeracionRomana valorV = NumeracionRomana.V;
+
+	System.out.println(valorV.getNumeroDecimal());
+
     }
-
-
+}
