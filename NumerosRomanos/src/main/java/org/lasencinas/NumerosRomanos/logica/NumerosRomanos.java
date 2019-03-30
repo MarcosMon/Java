@@ -28,26 +28,31 @@ public class NumerosRomanos {
 
 	return numeroTeclado.toUpperCase();
     }
+
     public int getResultado() {
-	
+
 	return this.resultado;
     }
-    
+
     public void setResultado(int resultado) {
-	
+
 	this.resultado = resultado;
-	
+
     }
 
     public void setNumeroTeclado(String numeroTeclado) {
 
 	this.numeroTeclado = numeroTeclado;
     }
-    
 
     public int longitudNumero() {
 
 	return this.getNumeroTeclado().length();
+    }
+
+    public void  mensajeError() {
+
+	System.out.println("El número introducido no es válido");
     }
 
     // --------------------Lógica----------------------//
@@ -98,12 +103,13 @@ public class NumerosRomanos {
 		}
 
 	    }
-	     setResultado(resultado + valorUltimoNumero);
+	    setResultado(resultado + valorUltimoNumero);
 
 	} else {
 
 	    setResultado(-1);
 	}
+
     }
 
 }
