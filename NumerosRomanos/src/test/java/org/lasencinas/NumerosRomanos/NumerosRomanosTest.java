@@ -1,6 +1,7 @@
 package org.lasencinas.NumerosRomanos;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import javax.swing.JOptionPane;
@@ -34,5 +35,14 @@ public class NumerosRomanosTest {
 	numeroRomano = new NumerosRomanos(numValido);
 	assertTrue("El número es válido", numeroRomano.comprobarNumero());
     }
+    
+    @Test
+    public void comprobacionNumeroNoValido() {
 
+	String numValido = "XXXX";
+	numeroRomano = new NumerosRomanos(numValido);
+	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
+    
+
+}
 }
