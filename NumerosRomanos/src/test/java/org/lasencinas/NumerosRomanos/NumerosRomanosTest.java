@@ -1,22 +1,38 @@
 package org.lasencinas.NumerosRomanos;
 
-import javax.swing.JOptionPane;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import javax.swing.JOptionPane;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.lasencinas.NumerosRomanos.logica.NumerosRomanos;
 
 public class NumerosRomanosTest {
+
+    private NumerosRomanos numeroRomano = null;
+
+    @Before
+    public void init() {
+	numeroRomano = new NumerosRomanos();
+    }
 
     @Test
     public void comprobacionTeclado() {
 	String numeroTeclado = JOptionPane.showInputDialog("Escribe un número romano");
-	NumerosRomanos numeroRomano = new NumerosRomanos(numeroTeclado);
+	numeroRomano = new NumerosRomanos(numeroTeclado);
 	boolean numRomano = numeroRomano.comprobarNumero();
-	assertEquals(numRomano,numeroRomano.comprobarNumero());
-	
+	assertEquals(numRomano, numeroRomano.comprobarNumero());
+
+    }
+
+    @Test
+    public void comprobacionNumeroValido() {
+
+	String numValido = "XXX";
+	numeroRomano = new NumerosRomanos(numValido);
+	assertTrue("El número es válido", numeroRomano.comprobarNumero());
     }
 
 }

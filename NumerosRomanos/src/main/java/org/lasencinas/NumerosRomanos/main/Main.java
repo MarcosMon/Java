@@ -1,6 +1,8 @@
-package org.lasencinas.NumerosRomanos;
+package org.lasencinas.NumerosRomanos.main;
 
 import javax.swing.JOptionPane;
+
+import org.lasencinas.NumerosRomanos.logica.NumerosRomanos;
 
 public class Main {
 
