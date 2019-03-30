@@ -50,7 +50,7 @@ public class NumerosRomanos {
 	return this.getNumeroTeclado().length();
     }
 
-    public void  mensajeError() {
+    public void mensajeError() {
 
 	System.out.println("El número introducido no es válido");
     }
@@ -107,9 +107,15 @@ public class NumerosRomanos {
 
 	} else {
 
-	    setResultado(-1);
+	    this.mensajeError();
 	}
 
+    }
+
+    @Override
+    public String toString() {
+	return "Has introducido el número romano: " + getNumeroTeclado() + " Y el resultado arábigo es: "
+		+ getResultado();
     }
 
 }
