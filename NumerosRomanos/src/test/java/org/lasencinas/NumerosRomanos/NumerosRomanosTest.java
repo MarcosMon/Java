@@ -16,7 +16,9 @@ public class NumerosRomanosTest {
 
     @Before
     public void init() {
+
 	numeroRomano = new NumerosRomanos();
+
     }
 
     @Test
@@ -104,6 +106,25 @@ public class NumerosRomanosTest {
 	String numValidoSiete = "CLMDVXI";
 	numeroRomano = new NumerosRomanos(numValidoSiete);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
+
+    }
+
+    @Test
+    public void comprobarResultadosCorrectos() {
+	
+	// ----------Primer Caso-----------//
+	String numValido = "CD";
+	numeroRomano = new NumerosRomanos(numValido);
+	int total = 400;
+	numeroRomano.calcularResultado();
+	assertEquals(total, numeroRomano.getResultado());
+	
+	// ----------Segundo Caso-----------//
+	String numValidoUno = "MMMCCCXXXVIII";
+	numeroRomano = new NumerosRomanos(numValidoUno);
+	int totalUno = 3338;
+	numeroRomano.calcularResultado();
+	assertEquals(totalUno, numeroRomano.getResultado());
 
     }
 }
