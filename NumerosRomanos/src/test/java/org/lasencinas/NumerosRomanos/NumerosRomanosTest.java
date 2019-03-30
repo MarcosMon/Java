@@ -113,18 +113,88 @@ public class NumerosRomanosTest {
     public void comprobarResultadosCorrectos() {
 	
 	// ----------Primer Caso-----------//
-	String numValido = "CD";
+	String numValido = "MDCCLXXXIX";
 	numeroRomano = new NumerosRomanos(numValido);
-	int total = 400;
+	int total = 1789;
 	numeroRomano.calcularResultado();
 	assertEquals(total, numeroRomano.getResultado());
 	
 	// ----------Segundo Caso-----------//
-	String numValidoUno = "MMMCCCXXXVIII";
-	numeroRomano = new NumerosRomanos(numValidoUno);
-	int totalUno = 3338;
+	String numValidoDos = "MCDXCII";
+	numeroRomano = new NumerosRomanos(numValidoDos);
+	int totalDos = 1492;
 	numeroRomano.calcularResultado();
-	assertEquals(totalUno, numeroRomano.getResultado());
+	assertEquals(totalDos, numeroRomano.getResultado());
+	
+	// ----------Tercer Caso-----------//
+	String numValidoTres = "MMMDCCCLXXXVIII";
+	numeroRomano = new NumerosRomanos(numValidoTres);
+	int totalTres = 3888;
+	numeroRomano.calcularResultado();
+	assertEquals(totalTres, numeroRomano.getResultado());
+
+	// ----------Cuarto Caso-----------//
+	String numValidoCuatro = "MMDCCLXXVII";
+	numeroRomano = new NumerosRomanos(numValidoCuatro);
+	int totalCuatro = 2777;
+	numeroRomano.calcularResultado();
+	assertEquals(totalCuatro, numeroRomano.getResultado());
+	
+	// ----------Quinto Caso-----------//
+	String numValidoCinco = "CDXLIV";
+	numeroRomano = new NumerosRomanos(numValidoCinco);
+	int totalCinco = 444;
+	numeroRomano.calcularResultado();
+	assertEquals(totalCinco, numeroRomano.getResultado());
+
+	// ----------Sexto Caso-----------//
+	String numValidoSeis = "CDXXXIX";
+	numeroRomano = new NumerosRomanos(numValidoSeis);
+	int totalSeis = 439;
+	numeroRomano.calcularResultado();
+	assertEquals(totalSeis, numeroRomano.getResultado());
+
+	// ----------Séptimo Caso-----------//
+	String numValidoSiete = "MMMCMXCIX";
+	numeroRomano = new NumerosRomanos(numValidoSiete);
+	int totalSiete = 3999;
+	numeroRomano.calcularResultado();
+	assertEquals(totalSiete, numeroRomano.getResultado());
+
+	// ----------Octavo Caso-----------//
+	String numValidoOcho = "MMMDCCLXXXIX";
+	numeroRomano = new NumerosRomanos(numValidoOcho);
+	int totalOcho = 3789;
+	numeroRomano.calcularResultado();
+	assertEquals(totalOcho, numeroRomano.getResultado());
+
+	// ----------Noveno Caso-----------//
+	String numValidoNueve = "MCMXXXIX";
+	numeroRomano = new NumerosRomanos(numValidoNueve);
+	int totalNueve = 1939;
+	numeroRomano.calcularResultado();
+	assertEquals(totalNueve, numeroRomano.getResultado());
+
+	// ----------Décimo Caso-----------//
+	String numValidoDiez = "MCMXLV";
+	numeroRomano = new NumerosRomanos(numValidoDiez);
+	int totalDiez = 1945;
+	numeroRomano.calcularResultado();
+	assertEquals(totalDiez, numeroRomano.getResultado());
+
+	// ----------Undécimo Caso-----------//
+	String numValidoOnce = "MCMLXXV";
+	numeroRomano = new NumerosRomanos(numValidoOnce);
+	int totalOnce = 1975;
+	numeroRomano.calcularResultado();
+	assertEquals(totalOnce, numeroRomano.getResultado());
+
+	// ----------DuoDécimo Caso-----------//
+	String numValidoDoce = "CDLXXVI";
+	numeroRomano = new NumerosRomanos(numValidoDoce);
+	int totalDoce = 476;
+	numeroRomano.calcularResultado();
+	assertEquals(totalDoce, numeroRomano.getResultado());
 
     }
 }
