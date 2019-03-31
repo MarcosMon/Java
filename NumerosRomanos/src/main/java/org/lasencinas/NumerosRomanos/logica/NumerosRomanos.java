@@ -7,9 +7,9 @@ import org.lasencinas.NumerosRomanos.Enum.NumeracionRomana;
 
 public class NumerosRomanos {
 
-    String numeroTeclado = "";
-    Pattern pattern;
-    Matcher matcher;
+    private String numeroTeclado = "";
+    private Pattern pattern;
+    private Matcher matcher;
     private int resultado;
 
     // -----------------Constructores-----------------------
@@ -114,7 +114,7 @@ public class NumerosRomanos {
 
     @Override
     public String toString() {
-	return "Has introducido el número romano: " + getNumeroTeclado() + " Y el resultado arábigo es: "
+	return "Has introducido el número romano: " + getNumeroTeclado() + "  El resultado arábigo es: "
 		+ getResultado();
     }
 
