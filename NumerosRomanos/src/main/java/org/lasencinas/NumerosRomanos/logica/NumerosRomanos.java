@@ -29,6 +29,11 @@ public class NumerosRomanos {
 	return numeroTeclado.toUpperCase();
     }
 
+    public int getNumeroArabigo(String numero) {
+
+	return NumeracionRomana.valueOf(numero).getNumeroDecimal();
+    }
+
     public int getResultado() {
 
 	return this.resultado;
@@ -55,15 +60,27 @@ public class NumerosRomanos {
 	System.out.println("El número introducido no es válido");
     }
 
+    public String secuenciaCalcular() {
+
+	return "(CM|CD)|(IX|IV)|(XC|XL)";
+    }
+
+    public String secuenciaValidar() {
+
+	return "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
+    }
+
+    public void comprobarCoincidencia(String secuencia, String numeroTeclado) {
+
+	pattern = Pattern.compile(secuencia);
+	matcher = pattern.matcher(numeroTeclado);
+    }
+
     // --------------------Lógica----------------------//
 
     public boolean comprobarNumero() {
 
-	String secuenciaNumValido = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
-
-	pattern = Pattern.compile(secuenciaNumValido);
-
-	matcher = pattern.matcher(getNumeroTeclado());
+	comprobarCoincidencia(this.secuenciaValidar(), this.getNumeroTeclado());
 
 	return matcher.matches();
 
@@ -71,39 +88,33 @@ public class NumerosRomanos {
 
     public void calcularResultado() {
 
+	String numero, parejasNumeros, ultimoNumero;
+
 	int resultado = 0;
 
-	String secuencia = "(CM|CD)|(IX|IV)|(XC|XL)";
-
-	String ultimoNumero = "" + getNumeroTeclado().charAt(longitudNumero() - 1);
-
-	int valorUltimoNumero = NumeracionRomana.valueOf(ultimoNumero).getNumeroDecimal();
+	ultimoNumero = "" + getNumeroTeclado().charAt(longitudNumero() - 1);
 
 	if (comprobarNumero()) {
 
-	    for (int i = 0; i < longitudNumero() - 1; i++) {
+	    for (int posicion = 0; posicion < longitudNumero() - 1; posicion++) {
 
-		String numero = "" + getNumeroTeclado().charAt(i);
+		numero = "" + getNumeroTeclado().charAt(posicion);
 
-		int numeros = NumeracionRomana.valueOf(numero).getNumeroDecimal();
+		parejasNumeros = getNumeroTeclado().substring(posicion, posicion + 2);
 
-		String comprobarSecuencia = getNumeroTeclado().substring(i, i + 2);
-
-		pattern = Pattern.compile(secuencia);
-
-		matcher = pattern.matcher(comprobarSecuencia);
+		comprobarCoincidencia(secuenciaCalcular(), parejasNumeros);
 
 		if (!matcher.matches()) {
 
-		    resultado += numeros;
+		    resultado += getNumeroArabigo(numero);
 
 		} else {
 
-		    resultado -= numeros;
+		    resultado -= getNumeroArabigo(numero);
 		}
 
 	    }
-	    setResultado(resultado + valorUltimoNumero);
+	    setResultado(resultado + getNumeroArabigo(ultimoNumero));
 
 	} else {
 

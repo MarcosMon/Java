@@ -2,6 +2,7 @@ package org.lasencinas.NumerosRomanos;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import javax.swing.JOptionPane;
@@ -73,59 +74,59 @@ public class NumerosRomanosTest {
     public void comprobacionNumeroNoValido() {
 
 	// ----------Primer Caso-----------//
-	String numValido = "XXXX";
-	numeroRomano = new NumerosRomanos(numValido);
+	String numNoValido = "XXXX";
+	numeroRomano = new NumerosRomanos(numNoValido);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Segundo Caso-----------//
-	String numValidoDos = "IVIV";
-	numeroRomano = new NumerosRomanos(numValidoDos);
+	String numNoValidoDos = "IVIV";
+	numeroRomano = new NumerosRomanos(numNoValidoDos);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Tercer Caso-----------//
-	String numValidoTres = "IVCM";
-	numeroRomano = new NumerosRomanos(numValidoTres);
+	String numNoValidoTres = "IVCM";
+	numeroRomano = new NumerosRomanos(numNoValidoTres);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Cuarto Caso-----------//
-	String numValidoCuatro = "XIIII";
-	numeroRomano = new NumerosRomanos(numValidoCuatro);
+	String numNoValidoCuatro = "XIIII";
+	numeroRomano = new NumerosRomanos(numNoValidoCuatro);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Quinto Caso-----------//
-	String numValidoCinco = "CCMMDX";
-	numeroRomano = new NumerosRomanos(numValidoCinco);
+	String numNoValidoCinco = "CCMMDX";
+	numeroRomano = new NumerosRomanos(numNoValidoCinco);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Sexto Caso-----------//
-	String numValidoSeis = "MMMLL";
-	numeroRomano = new NumerosRomanos(numValidoSeis);
+	String numNoValidoSeis = "MMMLL";
+	numeroRomano = new NumerosRomanos(numNoValidoSeis);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
 	// ----------Séptimo Caso-----------//
-	String numValidoSiete = "CLMDVXI";
-	numeroRomano = new NumerosRomanos(numValidoSiete);
+	String numNoValidoSiete = "CLMDVXI";
+	numeroRomano = new NumerosRomanos(numNoValidoSiete);
 	assertFalse("El número no es válido", numeroRomano.comprobarNumero());
 
     }
 
     @Test
     public void comprobarResultadosCorrectos() {
-	
+
 	// ----------Primer Caso-----------//
 	String numValido = "MDCCLXXXIX";
 	numeroRomano = new NumerosRomanos(numValido);
 	int total = 1789;
 	numeroRomano.calcularResultado();
 	assertEquals(total, numeroRomano.getResultado());
-	
+
 	// ----------Segundo Caso-----------//
 	String numValidoDos = "MCDXCII";
 	numeroRomano = new NumerosRomanos(numValidoDos);
 	int totalDos = 1492;
 	numeroRomano.calcularResultado();
 	assertEquals(totalDos, numeroRomano.getResultado());
-	
+
 	// ----------Tercer Caso-----------//
 	String numValidoTres = "MMMDCCCLXXXVIII";
 	numeroRomano = new NumerosRomanos(numValidoTres);
@@ -139,7 +140,7 @@ public class NumerosRomanosTest {
 	int totalCuatro = 2777;
 	numeroRomano.calcularResultado();
 	assertEquals(totalCuatro, numeroRomano.getResultado());
-	
+
 	// ----------Quinto Caso-----------//
 	String numValidoCinco = "CDXLIV";
 	numeroRomano = new NumerosRomanos(numValidoCinco);
@@ -197,4 +198,13 @@ public class NumerosRomanosTest {
 	assertEquals(totalDoce, numeroRomano.getResultado());
 
     }
+
+    @Test
+    public void comprobarSecuencias() {
+
+	numeroRomano = new NumerosRomanos();
+	assertEquals(numeroRomano.secuenciaCalcular(), "(CM|CD)|(IX|IV)|(XC|XL)");
+	assertEquals(numeroRomano.secuenciaValidar(), "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+    }
+
 }
